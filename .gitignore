@@ -1,5 +1,7 @@
 *.parquet
-
+artifacts/
+backend.db
+mlartifacts/
 
 # Python
 
