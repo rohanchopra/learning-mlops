@@ -2,6 +2,7 @@
 artifacts/
 backend.db
 mlartifacts/
+data/
 
 # Python
 
