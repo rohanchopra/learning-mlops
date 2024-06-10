@@ -1,0 +1,122 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: purple
+  configuration:
+    file_source:
+      path: homework_03/custom/load_model.py
+  downstream_blocks:
+  - train_model
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Load Model
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: load_model
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/train_model.py
+  downstream_blocks:
+  - eccentric_herald
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Train Model
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_model
+  - encode_data
+  - load_train_data
+  uuid: train_model
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/encode_data.py
+  downstream_blocks:
+  - train_model
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Encode Data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_train_data
+  uuid: encode_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/global_data_products/load_train_data.py
+    global_data_product:
+      uuid: train_data_prep_yellow_taxi
+  downstream_blocks:
+  - encode_data
+  - train_model
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Load Train Data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: load_train_data
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_exporters/eccentric_herald.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: eccentric herald
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - train_model
+  uuid: eccentric_herald
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-10 15:18:06.034040+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Train Model
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: train_model
+variables_dir: /home/src/mage_data/homework_03
+widgets: []
