@@ -1,7 +1,0 @@
-train_data_prep_yellow_taxi:
-  object_type: pipeline
-  object_uuid: data_ingestion
-  project: homework_03
-  repo_path: /home/src/mlops/homework_03
-  settings:
-    data_prep: {}
