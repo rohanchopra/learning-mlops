@@ -3,6 +3,8 @@ artifacts/
 backend.db
 mlartifacts/
 data/
+mlruns/
+*.pkl
 
 # Python
 
